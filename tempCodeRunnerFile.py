@@ -1,1 +1,0 @@
-moves = 20 + (level -1)
