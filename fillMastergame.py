@@ -71,7 +71,7 @@ buttonClick_sound = mixer.Sound(resource_path('bgm/click.mp3'))
 
 #helper function for fonts
 def get_font(size):
-    return pygame.font.Font(resource_path('font.ttf'), size)
+    return pygame.font.Font(resource_path('images/font.ttf'), size)
 
 #helper functions to set the current screen
 def set_screen(screen_name):
