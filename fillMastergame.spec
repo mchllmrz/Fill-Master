@@ -5,7 +5,7 @@ a = Analysis(
     ['fillMastergame.py'],
     pathex=[],
     binaries=[],
-    datas=[('images/fillMasterIcon.png', 'images'), ('images/main_button.PNG', 'images'), ('images/fillMasterBG.png', 'images'), ('bgm/bgm.mp3', 'bgm'), ('bgm/click sound for color buttons.mp3', 'bgm'), ('bgm/click.mp3', 'bgm'), ('bgm/game over sound.mp3', 'bgm'), ('bgm/win sound.mp3', 'bgm')],
+    datas=[('images/fillMasterBG.png', 'images'), ('images/fillMasterIcon.png', 'images'), ('images/main_button.PNG', 'images'), ('bgm/bgm.mp3', 'bgm'), ('bgm/click sound for color buttons.mp3', 'bgm'), ('bgm/click.mp3', 'bgm'), ('bgm/game over sound.mp3', 'bgm'), ('bgm/win sound.mp3', 'bgm')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
