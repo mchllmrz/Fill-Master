@@ -2,6 +2,7 @@ import pygame
 import sys
 import random
 import time
+import os
 from pygame import mixer
 
 pygame.init()
@@ -26,10 +27,20 @@ colors = [
     (255, 255, 255),  # White
 ]
 
+# Function to get the proper path for assets
+def resource_path(relative_path):
+    """Get the absolute path to a resource, works for both development and PyInstaller"""
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")  # Current directory if not bundled
+    return os.path.join(base_path, relative_path)
+
 # Game assets
-background = pygame.image.load('images/fillMasterBG.png')
-icon = pygame.image.load('images/fillMasterIcon.png')
-button_image = pygame.image.load('images/main_button.PNG')
+background = pygame.image.load(resource_path('images/fillMasterBG.png'))
+icon = pygame.image.load(resource_path('images/fillMasterIcon.png'))
+button_image = pygame.image.load(resource_path('images/main_button.PNG'))
 button_image = pygame.transform.scale(button_image, (360, 50))
 small_button_image = pygame.transform.scale(button_image, (80, 40))
 
@@ -48,19 +59,19 @@ challenge_timer = 0
 level_selection_page = 0
 
 #background music
-mixer.music.load('bgm/bgm.mp3')
+mixer.music.load(resource_path('bgm/bgm.mp3'))
 mixer.music.play(-1)
 mixer.music.set_volume(0.9)
 
 win_bgm_played = False  
 lose_bgm_played = False  
 
-buttonClick_sound = mixer.Sound('bgm/click.mp3')
+buttonClick_sound = mixer.Sound(resource_path('bgm/click.mp3'))
 
 
 #helper function for fonts
 def get_font(size):
-    return pygame.font.Font('font.ttf', size)
+    return pygame.font.Font(resource_path('font.ttf'), size)
 
 #helper functions to set the current screen
 def set_screen(screen_name):
@@ -134,7 +145,7 @@ def win_screen():
     global win_bgm_played  # Access the flag
     
     if not win_bgm_played:  # Check if the music hasn't played yet
-        win_bgm = mixer.Sound('bgm/win sound.mp3')
+        win_bgm = mixer.Sound(resource_path('bgm/win sound.mp3'))
         win_bgm.play()
         win_bgm_played = True 
     
@@ -186,7 +197,7 @@ def lose_screen():
     global lose_bgm_played  # Access the flag
     
     if not lose_bgm_played:  # Check if the music hasn't played yet
-        lose_bgm = mixer.Sound('bgm/game over sound.mp3')
+        lose_bgm = mixer.Sound(resource_path('bgm/game over sound.mp3'))
         lose_bgm.play()
         lose_bgm_played = True 
 
@@ -224,7 +235,7 @@ def handle_color_change(color):
     
     target_color = board[0][0]
     if target_color != color:
-        clickSound = mixer.Sound('bgm/click sound for color buttons.mp3')
+        clickSound = mixer.Sound(resource_path('bgm/click sound for color buttons.mp3'))
         clickSound.play()
         flood_fill(0,0, target_color, color)
         moves_left -= 1
