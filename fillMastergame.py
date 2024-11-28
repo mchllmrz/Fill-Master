@@ -325,18 +325,23 @@ def render_modal():
 
     # Mechanics Text
     mechanics = [
-        "1. Click a color to change the board's flood color.",
-        "2. Match the entire board to the same color.",
-        "3. You have limited moves or time (Challenge Mode).",
-        "4. Use strategy to minimize moves!"
+        "1. Fill the entire board with a single color.",
+        "2. Click a color from the buttons on the \n   bottom to start flooding.",
+        "3. Flooding will start from the top-left corner",
+        "4. Classic Mode: Progress through \n   levels with larger grids.",
+        "   Challenge Mode: Choose a board size \n   and beat the timer.",
+        "5. Focus on colors that flood the largest areas.",
+        "6. Win: Fill the board with one color \n   before moves/time run out.",
     ]
+
 
     # Display mechanics text
     y_offset = 200
     for line in mechanics:
-        text = get_font(10).render(line, True, BLACK)
-        screen.blit(text, (150, y_offset))
-        y_offset += 50
+        for subline in line.split("\n"):
+            text = get_font(10).render(subline, True, BLACK)
+            screen.blit(text, (150, y_offset))
+            y_offset += 20
 
     small_button = pygame.transform.scale(button_image, (150, 50))
     create_button(small_button, "Close", (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150), lambda: set_screen("game"))
