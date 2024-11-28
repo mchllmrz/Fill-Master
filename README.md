@@ -4,6 +4,8 @@ The 'Flood Fill' game draws inspiration from the familiar paint bucket tool foun
 an engaging and strategic puzzle experience. At its core, the game simulates the process of spreading a single color across a 
 connected region of cells on a grid. Players interact with this grid by selecting colors, mimicking the visual effect of filling areas in a digital canvas.
 
+Note: To access source code, click "fillMastergame.py" file. 
+
 HOW TO RUN THE GAME:
 1. DOWNLOAD THE ZIP FILE "Fill Master Game.zip"
 2. In you computer's download folder(or wherever folder the zip file got downloaded), right click on the zip file, then press "Extract All"
